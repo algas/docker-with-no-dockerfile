@@ -1,22 +1,24 @@
 # Docker with No Dockerfile
 
-株式会社スタイルレシピ
-
+株式会社スタイルレシピ  
+執行役員/CTO  
 山内雅浩
 
 ---
 
 ## この発表の対象
 
-デプロイスクリプトを書きたいんじゃなくてアプリを書きたいみなさまを対象にしています。
+「デプロイスクリプトを書きたいんじゃない、  
+アプリを書きたいんだ」  
+というみなさまを対象にしています。
 
 ---
 
-## まだ Dockerfile で消耗してるの？
+### まだ Dockerfile で消耗してるの？
 
 もう Dockerfile を書かなくてもいいんだよ。
 
----
+--
 
 ## Dokku-alt で Dockerfile を1行も書かないで Docker 環境が簡単に作れます！
 
@@ -24,7 +26,7 @@
 
 ## Dokku-alt とは？
 
-Dokku-alt is a Docker powered mini-Heroku.
+Dokku-alt is a Docker powered mini-Heroku.  
 Heroku で提供しているアプリケーションのビルド(buildpack)に対応しています。
 
 --
@@ -65,7 +67,8 @@ cat ~/.ssh/id_rsa.pub | ssh your-dokku-host sudo dokku access:add
 
 ## アプリケーションのデプロイ
 
-あらかじめアプリケーションを作成して git で管理してあるものとします。
+あらかじめアプリケーションを作成して  
+git で管理してあるものとします。
 
 --
 
@@ -115,6 +118,23 @@ git push dokku your-branch:master
 
 ---
 
+## 基本コマンド
+
+* コンテナ自体の操作  
+dokku start/stop/status/rebuild/delete (app)
+* アプリ一覧  
+dokku apps:list
+* 環境変数設定  
+dokku config:set (app) foo=bar
+* アプリのURL  
+dokku url (app)
+* コマンド実行  
+dokku enter/exec/run (app)
+* ログ出力  
+dokku logs (app)
+
+--
+
 ## 他にこんなこともできちゃいます
 
 * ssl (https) 対応
@@ -126,8 +146,47 @@ git push dokku your-branch:master
 * アプリごとのデプロイユーザ(公開鍵)の制限
 * コンテナの無停止更新
 
+---
+
+## 発展的な話題
+
+--
+
+### 本番環境でも使いたい
+
+Beanstalk で Docker コンテナを扱う。  
+Docker Hub に push して Beanstalk 設定のための  
+json ファイルを書くだけの簡単なお仕事。
+
+--
+
+### コンテナのログ出力を永続化したい
+
+→fluentd でログを集約する。
+
+3つの設置方法
+1. ホストにfluentdをインストールする
+2. コンテナにfluentdを含める
+3. fluentdコンテナを作成する
 
 ---
 
-終わり
+## 弊社サービスの紹介
 
+株式会社スタイルレシピは  
+日本最大のファッションレシピサービス「スタレピ」  
+を開発・運用しています。
+
+一言でいうと Cookpad のファッション版です。
+
+---
+
+## 人材採用
+
+株式会社スタイルレシピでは
+優秀なエンジニア(iOS,Android,サーバ)を
+募集しています！
+
+recruit@stylerecipe.co.jp
+
+![Cooporate image](img-stylerecipe.jpg)

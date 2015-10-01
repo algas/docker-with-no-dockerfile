@@ -1,8 +1,9 @@
 # Docker with No Dockerfile
 
 株式会社スタイルレシピ  
-執行役員/CTO  
-山内雅浩
+執行役員/開発部部長  
+山内雅浩  
+@algas
 
 ---
 
@@ -16,26 +17,25 @@
 
 ### まだ Dockerfile で消耗してるの？
 
-もう Dockerfile を書かなくてもいいんだよ。
-
 --
 
-## Dokku-alt で Dockerfile を1行も書かないで Docker 環境が簡単に作れます！
+## もう Dockerfile を書かなくてもいいんだよ
+
+Dokku-alt で Dockerfile を1行も書かないで  
+Docker 環境が簡単に作れます！
 
 ---
 
 ## Dokku-alt とは？
 
 Dokku-alt is a Docker powered mini-Heroku.  
-Heroku で提供しているアプリケーションのビルド(buildpack)に対応しています。
+1. Docker コンテナにアプリを構築する
+2. Nginx による NAT
+3. Nginx によるサーバ名の割当
 
 --
 
 ## Dokku-alt で出来ること
-
-1. Docker コンテナにアプリを構築する
-2. Nginx による NAT
-3. Nginx によるサーバ名の割当
 
 ---
 
@@ -107,7 +107,13 @@ git push dokku your-branch:master
 
 ---
 
-## dokku-alt のデプロイファイル
+## デプロイの仕組み
+
+Heroku で提供しているアプリケーションのビルド(buildpack)に対応しています。
+
+--
+
+## デプロイファイルの比較
 
 実は Dokku-alt 環境の構築に Dockerfile も使えます。
 
@@ -162,6 +168,7 @@ json ファイルを書くだけの簡単なお仕事。
 
 ### コンテナのログ出力を永続化したい
 
+デプロイの度に古いログが消失してしまう。
 →fluentd でログを集約する。
 
 3つの設置方法

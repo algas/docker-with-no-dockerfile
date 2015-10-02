@@ -1,9 +1,8 @@
 # Docker with No Dockerfile
 
 株式会社スタイルレシピ  
-執行役員/開発部部長  
 山内雅浩  
-@algas
+@algas  
 
 ---
 
@@ -29,11 +28,13 @@ Docker 環境が簡単に作れます！
 ## Dokku-alt とは？
 
 Dokku-alt is a Docker powered mini-Heroku.  
+https://github.com/dokku-alt/dokku-alt
+
 1. Docker コンテナにアプリを構築する
 2. Nginx による NAT
 3. Nginx によるサーバ名の割当
 
---
+---
 
 ## Dokku-alt で出来ること
 
